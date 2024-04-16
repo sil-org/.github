@@ -4,33 +4,41 @@ on:
   workflow_call:
     inputs:
       aws-region:
-        required: true
+        description: "The aws region to deploy to (default: us-east-1)"
         type: string
         default: us-east-1
       cluster:
+        description: The ECS cluster to deploy to
         required: true
         type: string
       service:
+        description: The ECS service to deploy to
         required: true
         type: string
       timeout:
+        description: "The timeout in seconds for ecs-deploy (default: 300)"
         type: number
         default: 300
       max-definitions:
+        description: "The maximum number of task definitions (default: 10)"
         type: number
         default: 10
       image:
+        description: The name of the image to deploy, should already be built
         required: true
         type: string
       tags:
         description: A space separated list of tags for image to deploy to ECS, the last tag is the one that will be deployed
         type: string
       environment:
+        description: The environment to deploy to, e.g. prod, stg, dev, test
         type: string
     secrets:
       aws-access-key-id:
+        description: The AWS access key ID
         required: true
       aws-secret-access-key:
+        description: The AWS secret access key
         required: true
 
 
