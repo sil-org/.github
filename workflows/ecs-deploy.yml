@@ -101,4 +101,4 @@ jobs:
           TIMEOUT: ${{ inputs.timeout }}
           MAX_DEFINITIONS: ${{ inputs.max-definitions }}
           IMAGE: ${{ steps.push-image.outputs.image_to_deploy }}
-        run: ecs-deploy -c $CLUSTER -n $SERVICE -i $IMAGE -t $TIMEOUT --max-definitions $MAX_DEFINITIONS
+        run: ecs-deploy --cluster $CLUSTER --service-name $SERVICE --image $IMAGE --timeout $TIMEOUT --max-definitions $MAX_DEFINITIONS
