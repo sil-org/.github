@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     container: public.ecr.aws/deepfactor/df/runtime:latest
     env:
-      DF_RUN_TOKEN: ${{ secrets.DF_RUN_TOKEN }}
+      DF_RUN_TOKEN: ${{ secrets.deepfactor_run_token }}
       IMAGE: ${{ inputs.image }}
     steps:
       - uses: actions/checkout@v4
