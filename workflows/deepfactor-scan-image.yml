@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       image:
-        description: The name of the image to deploy, should already be built
+        description: The name of the image to deploy, should already be built and uploaded as an artifact
         required: true
         type: string
     secrets:
@@ -23,6 +23,11 @@ jobs:
       IMAGE: ${{ inputs.image }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Download image
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.IMAGE }}
 
       - name: Scan with Deepfactor
         run: dfctl scan $IMAGE

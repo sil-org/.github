@@ -24,7 +24,7 @@ on:
         type: number
         default: 10
       image:
-        description: The name of the image to deploy, should already be built
+        description: The name of the image to deploy, should already be built and uploaded as an artifact
         required: true
         type: string
       tags:
@@ -59,6 +59,11 @@ jobs:
       - name: Login to AWS ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Download image
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.image }}
 
       - name: Push Images to AWS
         id: push-image
