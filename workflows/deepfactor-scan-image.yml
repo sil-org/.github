@@ -24,10 +24,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download image
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ env.IMAGE }}
-
       - name: Scan with Deepfactor
         run: dfctl scan $IMAGE
