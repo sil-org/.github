@@ -1,0 +1,14 @@
+* @silinternational/developers
+
+*.go @silinternational/go-devs
+go.mod @silinternational/go-devs
+go.sum @silinternational/go-devs
+
+*.js @silinternational/js-devs
+*.ts @silinternational/js-devs
+*.svelte @silinternational/js-devs
+*.vue @silinternational/js-devs
+
+*.tf @silinternational/tf-devs
+
+*.php @silinternational/php-devs
